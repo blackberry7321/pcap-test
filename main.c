@@ -157,10 +157,10 @@ int main(int argc, char* argv[]) {
         printf("proto = %d\n", ip_hdr->ip_p);
         u_int8_t *src_ip = ip_hdr->ip_src;
         u_int8_t *dst_ip = ip_hdr->ip_dst;
-        printf("source ip : %u.%u.%u.%u\n", src_ip[0], src_ip[1], src_ip[2], src_ip[3]);
-        printf("destination ip : %u.%u.%u.%u\n", dst_ip[0], dst_ip[1], dst_ip[2], dst_ip[3]);
+        printf("source ip : %d.%d.%d.%d\n", src_ip[0], src_ip[1], src_ip[2], src_ip[3]);
+        printf("destination ip : %d.%d.%d.%d\n", dst_ip[0], dst_ip[1], dst_ip[2], dst_ip[3]);
 
-        struct libnet_tcp_hdr *tcp_hdr = packet + sizeof(struct libnet_ethernet_hdr) + IP_HEADER_LEN * 4;
+        struct libnet_tcp_hdr *tcp_hdr = packet + sizeof(struct libnet_ethernet_hdr) + IP_HEADER_LEN * 5;
         uint16_t src_port = tcp_hdr->th_sport;
         uint16_t dst_port = tcp_hdr->th_dport;
         printf("source port : %d\n", ntohs(src_port));
